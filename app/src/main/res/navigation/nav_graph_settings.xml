@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph_settings"
+    app:startDestination="@id/fragment_settings">
+
+    <fragment
+        android:label="Settings"
+        android:id="@+id/fragment_settings"
+        android:name="com.example.navigationdemo.fragments.SettingsFragment">
+        <action
+            android:id="@+id/toHome"
+            app:destination="@id/global_nav_graph" />
+        <action
+            android:id="@+id/toAds"
+            app:destination="@id/fragment_ads" />
+        <action
+            android:id="@+id/toApp"
+            app:destination="@id/fragment_app" />
+    </fragment>
+
+    <fragment
+        android:label="Ads"
+        android:id="@+id/fragment_ads"
+        android:name="com.example.navigationdemo.fragments.AdsFragment" />
+
+    <fragment
+        android:label="App"
+        android:id="@+id/fragment_app"
+        android:name="com.example.navigationdemo.fragments.AppFragment">
+        <action
+            android:id="@+id/toThirdLevel"
+            app:destination="@id/fragment_third_level" />
+    </fragment>
+
+    <fragment
+        android:label="Third Level Fragment"
+        android:id="@+id/fragment_third_level"
+        android:name="com.example.navigationdemo.fragments.ThirdLevelFragment"/>
+
+</navigation>
