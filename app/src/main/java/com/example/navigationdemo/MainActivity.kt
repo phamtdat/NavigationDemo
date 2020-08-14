@@ -6,6 +6,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import kotlinx.android.synthetic.main.activity_main.*
@@ -69,7 +70,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupNavigation() {
-        navigationController = findNavController(R.id.navigationHostFragment)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navigationHostFragment) as NavHostFragment
+        navigationController = navHostFragment.navController
         NavigationUI.setupActionBarWithNavController(this, navigationController, appBarConfiguration)
         navigationView?.let {
             NavigationUI.setupWithNavController(it, navigationController)
