@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private var canNavigateUp: Boolean = false
     private val appBarConfiguration: AppBarConfiguration by lazy {
         AppBarConfiguration(
+                // top level starting points, should be ids of fragments and / or navGraphs included in the global_nav_graph
                 setOf(
                         R.id.fragment_home,
                         R.id.nav_graph_settings
@@ -25,7 +26,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        // setupToolbar()
         setupNavigation()
     }
 
@@ -66,10 +66,6 @@ class MainActivity : AppCompatActivity() {
         } else {
             DrawerLayout.LOCK_MODE_UNLOCKED }
         )
-    }
-
-    private fun setupToolbar() {
-        toolbar?.let { setSupportActionBar(it) }
     }
 
     private fun setupNavigation() {
